@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS pokemon;
+
+CREATE TABLE pokemon (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  type TEXT NOT NULL,
+  move1 TEXT NOT NULL,
+  move2 TEXT,
+  move3 TEXT,
+  move4 TEXT
+);
