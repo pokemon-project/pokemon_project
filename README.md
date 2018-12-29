@@ -1,19 +1,19 @@
-#Pokemon Project
+# Pokemon Project
 This program will resemble a pokedex, you will be able to look through all pokemon
 and get various information about them.
 
-#Dependencies
-##pip install
+# Dependencies
+## pip install
 ```
 flask
 pokebase
 ```
-##npm install
+## npm install
 ```
 redux
 I don't remember, Michael, can you finish this please?
 ```
-##Usage
+## Usage
 ```
 Python -
 cd mason
