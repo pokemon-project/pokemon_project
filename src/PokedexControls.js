@@ -5,8 +5,14 @@ class PokedexControls extends Component {
     constructor() {
         super()
         this.state = {
-
+            currentInput: ''
         }
+    }
+
+    putInput = () => {
+        this.setState(prevState => {
+            
+        })
     }
 
     render() {
@@ -16,7 +22,7 @@ class PokedexControls extends Component {
         // Mapping through the alphabet and numbers
 
         let letters = alphabet.map(letter => {
-            return <button className = "letter-buttons buttons">{`${letter}`}</button>
+            return <button className = "letter-buttons buttons">{`${letter.toUpperCase()}`}</button>
         })
         
         let numberButtons = numbers.map(number => {
@@ -29,6 +35,9 @@ class PokedexControls extends Component {
                 </div>
                 <div className = "pokedex-key-pad">
                     {letters}
+                    <button className = "circle-buttons button-enter">Enter</button>
+                    <button className = "circle-buttons button-delete">Delete</button>
+                    <button className = "circle-buttons button-random">Random</button>
                 </div>
                 <div className = "numbers-container">
                     {numberButtons}
