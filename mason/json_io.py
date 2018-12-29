@@ -1,24 +1,32 @@
 from flask import Flask
+from random import randrange
+import description
 import pokebase as pb
 import json
 
+
 app = Flask(__name__)
 
-@app.route('/get/<name>')
-def get_pokemon(name):
-	return get_info(name)
+@app.route('/get/random')
+def get_random():
+	return get_info(randrange(803))
 
-#Getting info from API
-def get_info(name):
-    pokemon = pb.pokemon(name)
+
+@app.route('/get/<ID>')
+def get_pokemon(ID):
+	return get_info(ID)
+
+
+def get_info(ID):
+    pokemon = pb.pokemon(ID)
     data = {
         "Name" : pokemon.name.capitalize(),
         "Type" : pokemon.types[0].type.name.capitalize(),
-		"Picture" : pokemon.image()
+		"Description" : description.get_description(pokemon.name),
+		"Moves" : [move.move.name.capitalize() for move in pokemon.moves[:4]],
+		"XP" : pokemon.base_experience,
+		"Picture" : pokemon.sprites.front_default
         }
-    moves = [move.move.name.capitalize() for move in pokemon.moves[:4]]
-    for i, move in enumerate(moves):
-        data["Move %d" % (i + 1)] = move
     json_data = json.dumps(data)
 
     return json_data
