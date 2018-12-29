@@ -49,49 +49,68 @@
     border-top-left-radius: 3%;
 }
 
-.pokedex-view-container-top-half {
-    height: 200px;
-    width:100%;
-    border-radius:none;
-    background-color:white;
-
-}
-
-.pokedex-view-container-bottom-half {
-    height: 200px;
-    width:100%;
-    border-radius:none;
-    background-color:white;
-
-}
-
-.pokedex-picture-container {
-    height:50%;
-    width:100%;
-    background-color:white;
-    border-radius:2px;
+.pokedex-view-box {
+    height:200px;
     display:flex;
-    /* align-items:center; */
+    flex-direction:column;
+}
+
+.pokedex-view-container-top-half {
+    height: 100px;
+    /* width:100%; */
+    border-radius:none;
+    background-color:white;
+    display:flex;
+    justify-content:space-between;
+    padding-left:10px;
+}
+
+.stats-top-container {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
 }
 
 .image-container {
     height:100px;
-    width:100px;
+    width:120px;
     background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png");
     background-position:center;
+}
+
+.pokemon-number-display-container {
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    padding-top:8px;
+    padding-right:8px;
+}
+
+.pokemon-weight-container {
+    padding-left:7px;
 }
 
 .pokemon-name-container {
     height:50px;
     width:250px;
     background-image: linear-gradient(to right, rgb(2, 163, 2), rgb(90, 255, 10));
-
     background-color:rgb(2, 163, 2);
     display:flex;
     align-items:center;
     justify-content:center;
     align-self:center;
     border-radius:5px;
+    border:1px solid black;
+}
+
+.pokedex-view-container-bottom-half {
+    height: 100px;
+    width:100%;
+    border-radius:none;
+    background-color:white;
 }
 
 .current-pokemon-name {
@@ -161,11 +180,11 @@
 }
 
 .searchbar-container {
-    height:60px;
+    height:80px;
     width:300px;
     display:flex;
     flex-direction:column;
-    justify-content:flex-end;
+    justify-content:center;
     align-items:center;
 }
 
@@ -183,9 +202,8 @@
     letter-spacing:2px;
 }
 
-
 .pokedex-key-pad {
-    height:220px;
+    height:260px;
     width:260px;
     display:flex;
     flex-wrap:wrap;
@@ -201,7 +219,6 @@
     margin:2px;
     font-size:1.2em;
     font-family: "Game Boy";
-
 }
 
 .numbers-container {
@@ -229,4 +246,37 @@
     color:rgb(184, 184, 184);
     box-sizing: border-box;
     border: 1px solid black;
+}
+
+.circle-buttons {
+    border-radius:50%;
+    height:45px;
+    width:45px;
+    margin:5px;
+    border:none;
+    position:relative;
+    left:40px;
+    top:10px;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-right:1px solid black;
+    border-bottom:1px solid black;
+    font-family: "Game Boy";
+    letter-spacing:1px;
+    font-size:.8em;
+    color:rgb(207, 205, 205);
+}
+
+.button-enter {
+    background-color:rgb(9, 97, 9);
+}
+
+.button-delete {
+    background-color:rgb(180, 118, 1);
+}
+
+.button-random {
+    background-color:rgb(43, 43, 248);
 }
