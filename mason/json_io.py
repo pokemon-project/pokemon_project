@@ -21,9 +21,11 @@ def get_info(ID):
     pokemon = pb.pokemon(ID)
     data = {
         "Name" : pokemon.name.capitalize(),
-        "Type" : pokemon.types[0].type.name.capitalize(),
+		"ID" : pokemon.id,
 		"Description" : description.get_description(pokemon.name),
+        "Type" : pokemon.types[0].type.name.capitalize(),
 		"Moves" : [move.move.name.capitalize() for move in pokemon.moves[:4]],
+		"Weight" : pokemon.weight,
 		"XP" : pokemon.base_experience,
 		"Picture" : pokemon.sprites.front_default
         }
