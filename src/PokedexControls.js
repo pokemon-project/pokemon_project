@@ -9,13 +9,20 @@ class PokedexControls extends Component {
         }
     }
 
-    putInput = () => {
-        this.setState(prevState => {
-            
+    onInputChange = (event) => {
+        event.preventDefault()
+        this.setState({
+            currentInput: event.target.value
         })
     }
 
+    // onSubmit = (event) => {
+    //     event.preventDefault()
+        
+    // }
+
     render() {
+
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -31,13 +38,19 @@ class PokedexControls extends Component {
         return (
             <div className = "pokedex-controls-container">
                 <div className = "searchbar-container">
-                    <input className = "pokedex-searchbar" type = "text" />
+                    <input 
+                        className = "pokedex-searchbar" 
+                        type = "text"
+                        onChange = { this.onInputChange }
+                        value = { this.state.currentInput }
+                        name = { this.state.currentInput }
+                    />
                 </div>
                 <div className = "pokedex-key-pad">
                     {letters}
-                    <button className = "circle-buttons button-enter">Enter</button>
+                    <button className = "circle-buttons button-enter" onClick = { () => this.props.getPokemon(this.state.currentInput) }>Enter</button>
                     <button className = "circle-buttons button-delete">Delete</button>
-                    <button className = "circle-buttons button-random">Random</button>
+                    <button className = "circle-buttons button-random" onClick = { () => this.props.getRandPokemon() }>Random</button>
                 </div>
                 <div className = "numbers-container">
                     {numberButtons}
