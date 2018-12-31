@@ -10,15 +10,15 @@ class PokedexView extends Component {
     }
 
     onClickViewStats = () => {
-        this.setState(prevState => ({
+        this.setState({
             currentView: true
-        }))
+        })
     }
 
     onClickViewAttacks = () => {
-        this.setState(prevState => ({
+        this.setState({
             currentView: false
-        }))
+        })
     }
 
 
@@ -27,27 +27,53 @@ class PokedexView extends Component {
         const pokePic = this.props.image
         return (
             <div className = 'pokedex-view-container'>
-                <div className = "pokedex-view-box">
-                    <div className = "pokedex-view-container-top-half">
-                        <div className = "image-container">
-                            <img className = "poke-image" src = {pokePic} alt = {this.props.name} />
+                {
+                    this.props.id === undefined ? 
+                        <div className = "pokedex-view-box first-box">
+                            <div className = "pokeball"></div>
                         </div>
-                        <div className = "stats-top-container">
-                            <div className = "pokemon-number-display-container">
-                                <p className = "pokemon-number-display">No. 1</p>
+                    :
+                        <div className = "pokedex-view-box">
+                            <div className = "pokedex-view-container-top-half">
+                                <div className = "image-container">
+                                    {
+                                        this.props.name === undefined ?
+                                            <div></div>
+                                        :
+                                            <img className = "poke-image" src = {pokePic} />
+                                    }
+                                </div>
+                                <div className = "stats-top-container">
+                                    <div className = "pokemon-number-display-container">
+                                        <p className = "pokemon-number-display">No. { this.props.id }</p>
+                                    </div>
+                                    <div className = "pokemon-weight-container word-container">
+                                        <p className = "pokemon-weight-display">Type: {this.props.type}</p>
+                                    </div>
+                                    <div>
+                                        <p className = "pokemon-weight-container word-container">Weight: { this.props.weight }</p>
+                                    </div>
+                                    <div className = "pokemon-type-display word-container">
+                                        <p className = "type-icon">Base Exp: { this.props.experience }</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className = "pokemon-weight-container word-container">
-                                <p className = "pokemon-weight-display">Type: {this.props.type}</p>
-                            </div>
-                            <div className = "pokemon-type-display word-container">
-                                <p className = "type-icon">Exp: { this.props.experience }</p>
+
+                            <div className = "pokedex-view-container-bottom-half">
+                            {
+                                this.state.currentView === true ?
+                                    <div className = "pokemon-description">Description: <br /> { this.props.description }</div>
+                                :
+                                    <React.Fragment>
+                                        <div className = "attack-title">Attacks:</div>
+                                        <div className = "pokemon-attacks">{ this.props.moves.map(move => {
+                                            return <p className = "individual-pokemon-attack">{`${move}`}</p>
+                                        }) }</div>
+                                    </React.Fragment>
+                            }
                             </div>
                         </div>
-                    </div>
-                    <div className = "pokedex-view-container-bottom-half">
-    
-                    </div>
-                </div>
+                }
                 <div className = "pokemon-name-container">
                     <p className = "current-pokemon-name">{this.props.name}</p>
                 </div>

@@ -10,8 +10,12 @@ pokebase
 ```
 ## npm install
 ```
+react
+react-dom
+axios
+react-redux
 redux
-I don't remember, Michael, can you finish this please?
+redux-thunk
 ```
 # Usage
 ```
@@ -19,5 +23,7 @@ Python -
 cd mason
 python json_io.py
 
-Michael, also fill out how to run your part please.
+React -
+parent folder
+npm start
 ```

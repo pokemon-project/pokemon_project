@@ -25,9 +25,12 @@ class App extends Component {
                         image = { this.props.pokemon.Picture }
                         name = { this.props.pokemon.Name }
                         type = { this.props.pokemon.Type }
-                        description = { this.props.pokemon.description }
-                        moves = { this.props.pokemon.moves }
+                        description = { this.props.pokemon.Description }
+                        moves = { this.props.pokemon.Moves }
                         experience = { this.props.pokemon.XP }
+                        weight = { this.props.pokemon.Weight }
+                        id = { this.props.pokemon.ID }
+                        key = { this.props.pokemon.ID }
                     />
                     <PokedexControls getPokemon = { this.getPokemon } getRandPokemon = { this.getRandomPokemon } />
                 </div>
