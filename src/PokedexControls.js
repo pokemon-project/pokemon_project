@@ -36,26 +36,32 @@ class PokedexControls extends Component {
             return <button className = "number-buttons buttons">{`${number}`}</button>
         })
         return (
-            <div className = "pokedex-controls-container">
-                <div className = "searchbar-container">
-                    <input 
-                        className = "pokedex-searchbar" 
-                        type = "text"
-                        onChange = { this.onInputChange }
-                        value = { this.state.currentInput }
-                        name = { this.state.currentInput }
-                    />
+            <React.Fragment>
+                <div className = "hinge-container">
+                    <div className = "hinges hinge-1"></div>
+                    <div className = "hinges hinge-2"></div>
                 </div>
-                <div className = "pokedex-key-pad">
-                    {letters}
-                    <button className = "circle-buttons button-enter" onClick = { () => this.props.getPokemon(this.state.currentInput) }>Enter</button>
-                    <button className = "circle-buttons button-delete">Delete</button>
-                    <button className = "circle-buttons button-random" onClick = { () => this.props.getRandPokemon() }>Random</button>
+                <div className = "pokedex-controls-container">
+                    <div className = "searchbar-container">
+                        <input 
+                            className = "pokedex-searchbar" 
+                            type = "text"
+                            onChange = { this.onInputChange }
+                            value = { this.state.currentInput }
+                            name = { this.state.currentInput }
+                        />
+                    </div>
+                    <div className = "pokedex-key-pad">
+                        {letters}
+                        <button className = "circle-buttons button-enter" onClick = { () => this.props.getPokemon(this.state.currentInput) }>Enter</button>
+                        <button className = "circle-buttons button-delete">Delete</button>
+                        <button className = "circle-buttons button-random" onClick = { () => this.props.getRandPokemon() }>Random</button>
+                    </div>
+                    <div className = "numbers-container">
+                        {numberButtons}
+                    </div>
                 </div>
-                <div className = "numbers-container">
-                    {numberButtons}
-                </div>
-            </div>
+            </React.Fragment>
         )
     }
 

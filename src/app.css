@@ -45,8 +45,9 @@
     flex-direction:column;
     padding:10px;
     justify-content:space-between;
-    border-bottom-left-radius: 3%;
-    border-top-left-radius: 3%;
+    /* border-bottom-left-radius: 3%;
+    border-top-left-radius: 3%; */
+    border-radius:3%;
 }
 
 .pokedex-view-box {
@@ -234,8 +235,9 @@
     flex-direction:column;
     justify-content:space-around;
     align-items:center;
-    border-bottom-right-radius: 3%;
-    border-top-right-radius: 3%;
+    border-radius:3%;
+    /* border-bottom-right-radius: 3%;
+    border-top-right-radius: 3%; */
 }
 
 .searchbar-container {
@@ -320,8 +322,9 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    border-right:1px solid black;
-    border-bottom:1px solid black;
+    /* border-right:1px solid black;
+    border-bottom:1px solid black; */
+    box-shadow:1px 1px black;
     font-family: "Game Boy";
     letter-spacing:1px;
     font-size:.8em;
@@ -329,13 +332,28 @@
 }
 
 .button-enter {
-    background-color:rgb(9, 97, 9);
+    background-color:rgb(6, 160, 6);
 }
 
 .button-delete {
-    background-color:rgb(180, 118, 1);
+    background-color:rgb(218, 143, 5);
 }
 
 .button-random {
-    background-color:rgb(43, 43, 248);
+    background-color:rgb(19, 19, 233);
+}
+
+.hinge-container {
+    height:400px;
+    width:8px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.hinges {
+    height:50px;
+    width:8px;
+    background-color:red;
 }
