@@ -27,6 +27,7 @@ class App extends Component {
                         weight = { this.props.pokemon.Weight }
                         id = { this.props.pokemon.ID }
                         key = { this.props.pokemon.ID }
+                        getPokemon = { this.getPokemon } 
                     />
                     <PokedexControls 
                         getPokemon = { this.getPokemon } 

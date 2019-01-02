@@ -39,10 +39,9 @@ class PokedexControls extends Component {
         let deletedStr = this.state.currentInput.split('')
         deletedStr.pop()
         let returnedStr = deletedStr.join('')
-        console.log(returnedStr)
-        this.setState(prevState => ({
-            currentInput: console.log(prevState)
-        }))
+        this.setState({
+            currentInput: returnedStr
+        })
     }
 
     // onSubmit = (event) => {
@@ -53,7 +52,7 @@ class PokedexControls extends Component {
     render() {
         console.log(this.state)
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
         // Mapping through the alphabet and numbers
 
@@ -87,9 +86,9 @@ class PokedexControls extends Component {
                     </div>
                     <div className = "pokedex-key-pad">
                         {letters}
-                        <button className = "circle-buttons button-enter" onClick = { () => this.onRandAndEnterClick(this.state.currentInput)}>Enter</button>
                         <button className = "circle-buttons button-delete" onClick = { () => this.onDeleteClick() }>Delete</button>
                         <button className = "circle-buttons button-random" onClick = { () => this.onRandAndEnterClick('random') }>Random</button>
+                        <button className = "circle-buttons button-enter" onClick = { () => this.onRandAndEnterClick(this.state.currentInput)}>Enter</button>
                     </div>
                     <div className = "numbers-container">
                         {numberButtons}

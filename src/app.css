@@ -19,7 +19,7 @@
     width:100vw;
     min-height:800px;
     min-width:800px;
-    background-image: url('https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fvignette3.wikia.nocookie.net%2Fpokemoncrater%2Fimages%2Fb%2Fbc%2FGrass_Type.jpg%2Frevision%2Flatest%3Fcb%3D20100315205316&f=1');
+    background-image: url('https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmr21.github.io%2Fcarousel-parallax%2Fimg%2Fpokemon-battle%2Fbg.jpg&f=1');
     background-size:contain;
     background-position: center;
     opacity:0.7;
@@ -77,12 +77,9 @@
 
 .pokedex-view-container-top-half {
     height: 100px;
-    /* width:100%; */
     border-radius:none;
-    /* background-color:white; */
     display:flex;
     justify-content:space-between;
-    /* padding-left:10px; */
 }
 
 .stats-top-container {
@@ -98,7 +95,6 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    /* border:1px solid black; */
     border:1px solid transparent;
 }
 
@@ -106,8 +102,6 @@
     height:80px;
     width:90px;
     border:1px solid transparent;
-    /* background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"); */
-    /* background-position:center; */
 }
 
 .pokemon-number-display-container {
@@ -116,21 +110,19 @@
     display:flex;
     flex-direction:column;
     align-items:flex-end;
-    padding-top:8px;
     padding-right:8px;
-    /* position:absolute; */
 }
 
 .word-container {
-    padding-left:7px;
-    margin-top:5px;
+    padding-left:10px;
     height:18px;
-    /* display:flex;
-    align-items:center; */
+    padding-top:3px;
 }
 
 .display-letters {
     height:18px;
+    display:flex;
+    align-items:center;
 }
 
 .pokemon-name-container {
@@ -155,28 +147,29 @@
 
 .attack-title {
     padding-left:7px;
+    height:20px;
+    display:flex;
+    align-items:center;
 }
 
 .pokemon-attacks {
     width:100%;
     display:flex;
     flex-wrap: wrap;
-    /* text-align:center; */
     display:inline-block;
 }
 
 .individual-pokemon-attack {
-    margin-left:10px;
-    margin-top:10px;
-    
+    margin-left:12px;
+    margin-top:5px;
+    height:12px;
+    display:flex;
+    align-items:center;
 }
 
 .pokedex-view-container-bottom-half {
     height: 100px;
     width:100%;
-    /* display:flex;
-    justify-content:center;
-    align-items:center; */
 }
 
 .current-pokemon-name {
@@ -215,10 +208,13 @@
     font-size:1.1em;
 }
 
+.left-buttons:hover {
+    cursor:pointer;
+}
+
 .toggle-buttons {
     height:100%;
     width:150px;
-    /* background-color:green; */
     display:flex;
     align-items:center;
     justify-content:space-around;
@@ -228,8 +224,16 @@
     font-size:4em;
 }
 
+.fas:hover {
+    cursor:pointer;
+}
+
 .current-pokemon-name {
     text-align:center;
+    height:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .pokedex-controls-container {
@@ -319,6 +323,10 @@
     cursor:pointer;
 }
 
+.buttons:active {
+    border: 1px solid grey;
+}
+
 .circle-buttons {
     border-radius:50%;
     height:45px;
@@ -332,13 +340,19 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    /* border-right:1px solid black;
-    border-bottom:1px solid black; */
     box-shadow:1px 1px black;
     font-family: "Game Boy";
     letter-spacing:1px;
     font-size:.8em;
     color:rgb(207, 205, 205);
+}
+
+.circle-buttons:hover {
+    cursor:pointer;
+}
+
+.circle-buttons:active {
+    box-shadow: 0px 0px 1px 1px;
 }
 
 .button-enter {

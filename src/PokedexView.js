@@ -22,6 +22,24 @@ class PokedexView extends Component {
         })
     }
 
+    onClickToggleRight = (id) => {
+        if (id < 802) {
+            this.props.getPokemon(id += 1)
+        } else {
+            id = 0
+            this.props.getPokemon(id += 1)
+        }
+    }
+
+    onClickToggleLeft = (id) => {
+        if (id > 1) {
+            this.props.getPokemon(id -= 1)
+        } else {
+            id = 802
+            this.props.getPokemon(id)
+        }
+    }
+
 
     render() {
         const pokePic = this.props.image
@@ -40,7 +58,7 @@ class PokedexView extends Component {
                                         this.props.name === undefined ?
                                             <div></div>
                                         :
-                                            <img className = "poke-image" alt = "" src = {pokePic} />
+                                            <img className = "poke-image" alt = "" src = { pokePic } />
                                     }
                                 </div>
                                 <div className = "stats-top-container">
@@ -48,13 +66,13 @@ class PokedexView extends Component {
                                         <p className = "pokemon-number-display display-letters">No. { this.props.id }</p>
                                     </div>
                                     <div className = "pokemon-weight-container word-container">
-                                        <p className = "pokemon-weight-display display-letters">Type: {this.props.type}</p>
+                                        <p className = "pokemon-weight-display display-letters">Type: { this.props.type }</p>
                                     </div>
-                                    <div>
-                                        <p className = "pokemon-weight-container word-container display-letters">Weight: { this.props.weight }</p>
+                                    <div className = "pokemon-weight-container word-container">
+                                        <p className = "pokemon-weight-display display-letters">Weight: { this.props.weight }</p>
                                     </div>
-                                    <div className = "pokemon-type-display word-container">
-                                        <p className = "type-icon display-letters">Base Exp: { this.props.experience }</p>
+                                    <div className = "pokemon-weight-container word-container">
+                                        <p className = "pokemon-weight-display display-letters">Base Exp: { this.props.experience }</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +104,8 @@ class PokedexView extends Component {
                     </div>
                     {/* These buttons will allow you to cycle through the pokemon in pokedex order hopefully  */}
                     <div className = "toggle-buttons">
-                        <i className = "fas fa-caret-left"></i>
-                        <i className = "fas fa-caret-right"></i>
+                        <i className = "fas fa-caret-left" onClick = { () => this.onClickToggleLeft(this.props.id) }></i>
+                        <i className = "fas fa-caret-right" onClick = { () => this.onClickToggleRight(this.props.id) }></i>
                     </div>
                 </div>
             </div>
