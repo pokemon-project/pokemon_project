@@ -9,11 +9,40 @@ class PokedexControls extends Component {
         }
     }
 
+    onRandAndEnterClick = (pokemon) => {
+        this.props.getPokemon(pokemon)
+        this.setState({
+            currentInput: ''
+        })
+    }
+
+    onAlphabetButtonClick = (letter) => {
+        this.setState(prevState => ({
+            currentInput: prevState.currentInput + letter
+        }))
+    }
+
+    onNumberButtonClick = (number) => {
+        this.setState(prevState => ({
+            currentInput: prevState.currentInput + number
+        }))
+    } 
+
     onInputChange = (event) => {
         event.preventDefault()
         this.setState({
             currentInput: event.target.value
         })
+    }
+
+    onDeleteClick = () => {
+        let deletedStr = this.state.currentInput.split('')
+        deletedStr.pop()
+        let returnedStr = deletedStr.join('')
+        console.log(returnedStr)
+        this.setState(prevState => ({
+            currentInput: console.log(prevState)
+        }))
     }
 
     // onSubmit = (event) => {
@@ -22,18 +51,23 @@ class PokedexControls extends Component {
     // }
 
     render() {
-
+        console.log(this.state)
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
         // Mapping through the alphabet and numbers
 
-        let letters = alphabet.map(letter => {
-            return <button className = "letter-buttons buttons">{`${letter.toUpperCase()}`}</button>
+        let letters = alphabet.map((letter, i) => {
+            return <button key = {i} 
+                           className = "letter-buttons buttons"
+                           onClick = { () => this.onAlphabetButtonClick(letter) }>{`${letter.toUpperCase()}`}</button>
         })
         
-        let numberButtons = numbers.map(number => {
-            return <button className = "number-buttons buttons">{`${number}`}</button>
+        let numberButtons = numbers.map((number, i) => {
+            number.toString()
+            return <button key = {i} 
+                           className = "number-buttons buttons"
+                           onClick = { () => this.onNumberButtonClick(number) }>{`${number}`}</button>
         })
         return (
             <React.Fragment>
@@ -53,9 +87,9 @@ class PokedexControls extends Component {
                     </div>
                     <div className = "pokedex-key-pad">
                         {letters}
-                        <button className = "circle-buttons button-enter" onClick = { () => this.props.getPokemon(this.state.currentInput) }>Enter</button>
-                        <button className = "circle-buttons button-delete">Delete</button>
-                        <button className = "circle-buttons button-random" onClick = { () => this.props.getRandPokemon() }>Random</button>
+                        <button className = "circle-buttons button-enter" onClick = { () => this.onRandAndEnterClick(this.state.currentInput)}>Enter</button>
+                        <button className = "circle-buttons button-delete" onClick = { () => this.onDeleteClick() }>Delete</button>
+                        <button className = "circle-buttons button-random" onClick = { () => this.onRandAndEnterClick('random') }>Random</button>
                     </div>
                     <div className = "numbers-container">
                         {numberButtons}

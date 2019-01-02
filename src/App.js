@@ -10,10 +10,6 @@ class App extends Component {
         this.props.getPokemon(pokemon)
     }
 
-    getRandomPokemon = () => {
-        this.props.getPokemon(rand)
-    }
-
     render() {
         console.log(this.props)
         console.log(this.state)
@@ -32,7 +28,11 @@ class App extends Component {
                         id = { this.props.pokemon.ID }
                         key = { this.props.pokemon.ID }
                     />
-                    <PokedexControls getPokemon = { this.getPokemon } getRandPokemon = { this.getRandomPokemon } />
+                    <PokedexControls 
+                        getPokemon = { this.getPokemon } 
+                        getRandPokemon = { this.getRandomPokemon }
+                        id = { this.props.pokemon.ID }
+                    />
                 </div>
             </React.Fragment>
         )

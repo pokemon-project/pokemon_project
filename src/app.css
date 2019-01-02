@@ -125,6 +125,12 @@
     padding-left:7px;
     margin-top:5px;
     height:18px;
+    /* display:flex;
+    align-items:center; */
+}
+
+.display-letters {
+    height:18px;
 }
 
 .pokemon-name-container {
@@ -307,6 +313,10 @@
     color:rgb(184, 184, 184);
     box-sizing: border-box;
     border: 1px solid black;
+}
+
+.buttons:hover {
+    cursor:pointer;
 }
 
 .circle-buttons {
