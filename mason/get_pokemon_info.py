@@ -8,7 +8,7 @@ def get_description(pokemon):
     link = "https://pokemondb.net/pokedex/" + pokemon.lower()
     site = requests.get(link)
     if site.status_code != requests.codes.ok:
-        return
+        return "No description available."
     soup = BeautifulSoup(site.text, "html.parser")
     description = soup.find('div', {"class":"grid-col"})
     clean_d = description.text.replace("\n", "")
